@@ -352,7 +352,8 @@ bool TRAC_IKKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pos
     bounds.rot.z(std::numeric_limits<float>::max());
   }
 
-  double epsilon = 1e-5;  //Same as MoveIt's KDL plugin
+  double epsilon = options.tolerence;  //Same as MoveIt's KDL plugin
+  // ROS_WARN("IK Tolerence %f", epsilon);
 
   TRAC_IK::SolveType solvetype;
 
